@@ -1,4 +1,3 @@
----
 apiVersion: kubeaddons.mesosphere.io/v1beta1
 kind: ClusterAddon
 metadata:
@@ -6,29 +5,29 @@ metadata:
   labels:
     kubeaddons.mesosphere.io/name: external-dns
   annotations:
-    catalog.kubeaddons.mesosphere.io/addon-revision: "0.7.0-4"
-    appversion.kubeaddons.mesosphere.io/external-dns: "0.7.0"
-    values.chart.helm.kubeaddons.mesosphere.io/external-dns: "https://raw.githubusercontent.com/mesosphere/charts/87aaac21e2833a3809323efd8787f71fa80ab023/stable/external-dns/values.yaml"
+    catalog.kubeaddons.mesosphere.io/addon-revision: 0.7.6-1
+    appversion.kubeaddons.mesosphere.io/external-dns: 0.7.6
+    values.chart.helm.kubeaddons.mesosphere.io/external-dns: https://raw.githubusercontent.com/lloesche/charts/43ab7f747e07acb320271047f32698ed3bd6b4e9/stable/external-dns/values.yaml
 spec:
   kubernetes:
     minSupportedVersion: v1.15.6
   cloudProvider:
-    - name: aws
-      enabled: false
-    - name: azure
-      enabled: false
-    - name: gcp
-      enabled: false
-    - name: vsphere
-      enabled: false
-    - name: docker
-      enabled: false
-    - name: none
-      enabled: false
+  - name: aws
+    enabled: false
+  - name: azure
+    enabled: false
+  - name: gcp
+    enabled: false
+  - name: vsphere
+    enabled: false
+  - name: docker
+    enabled: false
+  - name: none
+    enabled: false
   chartReference:
     repo: https://mesosphere.github.io/charts/stable
     chart: external-dns
-    version: 2.20.5
+    version: 2.20.6
     values: |
       rbac:
         create: true
